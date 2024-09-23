@@ -3,7 +3,7 @@ let deg = 58;
 let outline = true;
 
 let gui;
-let diameterSlider, dogSlider, outlineCheckbox;
+let diameterSlider, degSlider, diameterSlider2, outlineCheckbox;
 
 function setup() {
   createCanvas(400, 400);
@@ -11,15 +11,21 @@ function setup() {
   strokeWeight(10);
 
   gui = createGui();
-  diameterSlider = createSlider("diameter", 200,10,100,20,10,100);
+  diameterSlider = createSlider("triangle", 200,10,100,20,10,100);
   diameterSlider.onChange = diameterSliderChange;
   diameterSlider.setStyle({
     fillBg: color("white"),
     strokeWeight: 4
   })
-  degSlider = createSlider("rotation",200,40,100,20,0,180);
+  degSlider = createSlider("square",200,40,100,20,0,180);
   degSlider.val = 23;
   degSlider.setStyle({
+    fillBg: color("white"),
+    strokeWeight: 4
+  })
+  diameterSlider2 = createSlider("circle", 200,70,100,20,10,180);
+  diameterSlider2.onChange = diameterSliderChange;
+  diameterSlider2.setStyle({
     fillBg: color("white"),
     strokeWeight: 4
   })
@@ -48,14 +54,8 @@ function draw() {
   
   push();
   translate(100,100);
-  //white ellipse
-  ellipseMode(RADIUS);
   fill(255);
-  ellipse(50, 50, 30, 30);
-  // Gray ellipse.
-  ellipseMode(CENTER);
-  fill(100);
-  ellipse(50, 50, 30, 30);
+  quad(50, 62, 86, 50, 50, 38, 14, diameterSlider2.val);
   pop();
 
   push();
@@ -66,8 +66,13 @@ function draw() {
 
   noStroke();
   text(diameterSlider.label,140,23);
-}
 
+  noStroke();
+  text(degSlider.label,140,53);
+
+  noStroke();
+  text(diameterSlider2.label,140,83);
+}
 /*i want to make eit so when you press the x checkbox it goes back to how it was previously when the page is first loaded but idk how :/
 
 this is the code i found for a print ut it doesn't work with what i changed the values to so idk :((
@@ -76,8 +81,8 @@ if(outlineCheckbox.isPressed) {
     print(outlineCheckbox.label + " is pressed.");
   }
 }
+*/
 
 function diameterSliderChange() {
   d = diameterSlider.val;
 }
-*/
