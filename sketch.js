@@ -1,9 +1,9 @@
-let d = 60
-let deg = 58
+let d = 60;
+let deg = 58;
 let outline = true;
 
 let gui;
-let diameterSlider, dogSlider, outlineCheckbox
+let diameterSlider, dogSlider, outlineCheckbox;
 
 function setup() {
   createCanvas(400, 400);
@@ -12,7 +12,7 @@ function setup() {
 
   gui = createGui();
   diameterSlider = createSlider("diameter", 200,10,100,20,10,100);
-  diameterSlider.onChange = diameterSliderChange
+  diameterSlider.onChange = diameterSliderChange;
   diameterSlider.setStyle({
     fillBg: color("white"),
     strokeWeight: 4
@@ -66,13 +66,11 @@ function draw() {
 
   noStroke();
   text(diameterSlider.label,140,23);
+}
 
-/* i want to make eit so when you press the x checkbox it goes 
-back to how it was previously when the page is first loaded but
-idk how :/
+/*i want to make eit so when you press the x checkbox it goes back to how it was previously when the page is first loaded but idk how :/
 
-this is the code i found for a print ut it doesn't work with what 
-i changed the values to so idk :((
+this is the code i found for a print ut it doesn't work with what i changed the values to so idk :((
 
 if(outlineCheckbox.isPressed) {
     print(outlineCheckbox.label + " is pressed.");
@@ -82,4 +80,4 @@ if(outlineCheckbox.isPressed) {
 function diameterSliderChange() {
   d = diameterSlider.val;
 }
-*\
+*/
